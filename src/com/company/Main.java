@@ -1,5 +1,6 @@
 package com.company;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -39,6 +40,19 @@ public class Main {
         System.out.print("Please input the second number (power). ");
         int power = sc.nextInt();
         System.out.println(base + " to the power of " + power + " is " + exponentiation(base,power));
+
+        //Write a recursive function to count the number of occurrences of character [C] in a String
+        System.out.println("\nPlease input a String");
+        String exampleString = sc.next();
+        System.out.println("What is the character that you want to count the number of occurrences for the previous String?");
+        String exampleCharacter= sc.next();
+        System.out.println(exampleString + " contains " + characterOccurrence(exampleString, exampleCharacter) + " occurrences of the character " + exampleCharacter);
+    }
+
+    private static int characterOccurrence(String exampleString, String character) {
+        if (exampleString.isEmpty()) return 0;
+        if (exampleString.indexOf(character) ==  0) return 1 + characterOccurrence(exampleString.substring(1), character);
+        return characterOccurrence(exampleString.substring(1), character);
     }
 
     private static int exponentiation(int base, int power) {
