@@ -32,12 +32,23 @@ public class Main {
         //Write a recursive function to calculate sum(a,b)
         System.out.print("\nWhat are the two numbers you want to find the sum of? ");
         System.out.println(sum(sc.nextInt(),sc.nextInt()));
+
+        //Write a recursive function to calculate exponentiation(base, power)
+        System.out.print("\nPlease input the first number (base). ");
+        int base = sc.nextInt();
+        System.out.print("Please input the second number (power). ");
+        int power = sc.nextInt();
+        System.out.println(base + " to the power of " + power + " is " + exponentiation(base,power));
+    }
+
+    private static int exponentiation(int base, int power) {
+        if (power == 0) return 1;
+        return base * exponentiation(base, power - 1);
     }
 
     private static int sum(int i, int j) {
-        if (i == 0 && j == 0) return 0;
-        if (j == 0) return 1 + sum(i-1, j);
-        return 1 + sum(i, j-1);
+        if(i > 0) return 1 + sum(i-1,j);
+        return j;
     }
 
     private static int arrayLength(ArrayList arrayList) {
